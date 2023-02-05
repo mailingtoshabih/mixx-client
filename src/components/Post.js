@@ -6,14 +6,14 @@ import { Interact } from './Interact'
 
 // ------------------------------------------------------------------------
 
-export const Post = ({ post, user }) => {
+export const Post = ({ post }) => {
 
   const backend = process.env.REACT_APP_BACKEND_URL;
 
 
   return (
 
-    <div className='mb-3 w-full bg-white rounded-lg p-4 drop-shadow-lg'>
+    <div className='mb-5 w-full bg-white rounded-lg p-4 shadow-md shadow-green-200/50'>
 
 
 

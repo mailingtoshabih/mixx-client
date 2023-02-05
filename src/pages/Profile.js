@@ -12,7 +12,6 @@ import { Post } from "../components/Post";
 import { Ads } from "../components/Ads";
 import { About } from "../components/About";
 import axios from 'axios';
-
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 
@@ -25,6 +24,7 @@ export const Profile = () => {
 
     const backend = process.env.REACT_APP_BACKEND_URL;
 
+
     const params = useParams();
 
     const [user, setUser] = useState({});
@@ -34,19 +34,27 @@ export const Profile = () => {
     useEffect(() => {
 
         const fetchPosts = async () => {
-            const userRes = await axios.get(backend + `/api/users/find/${params.email}`);
-            setUser(userRes.data[0]);
 
-            const postRes = await axios.get(backend + `/api/posts/${params.email}`);
-            setMyPosts(postRes.data.reverse());
-
+            try{
+                const userRes = await axios.get(backend + `/api/users/find/${params.email}`);
+                setUser(userRes.data[0]);
+                
+                const postRes = await axios.get(backend + `/api/posts/${params.email}`);
+                setMyPosts(postRes.data.reverse());
+            }
+            catch(exc){
+                console.log(exc.message);
+            }
         }
         fetchPosts();
-    }, [params.email]    //try empty array
+
+    }, []    //try empty array
     )
 
 
-    // if user.username === username > do something
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
 
 
@@ -55,7 +63,6 @@ export const Profile = () => {
             <Navbar />
 
             <div className="w-full md:flex justify-between max-w-7xl mx-auto p-1 md:p-5">
-
 
                 {/* left section  my profile*/}
                 <div className="hidden md:block w-1/4 rounded-lg shrink-0">

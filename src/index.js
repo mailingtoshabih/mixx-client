@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-
+import Scroll from "./helpers/Scroll";
 
 
 
@@ -17,7 +17,9 @@ root.render(
   // <React.StrictMode>
 
   <AuthContextProvider>
+    
     <App />
+    
   </AuthContextProvider>
 
   // </React.StrictMode>

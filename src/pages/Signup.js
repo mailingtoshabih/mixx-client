@@ -85,7 +85,7 @@ export const Signup = () => {
 
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900  ">Your email</label>
-                                <input type="email" id="email" className="bg-gray-100 text-gray-900 sm:text-sm rounded-full  block w-full p-2.5 outline-none" placeholder="name@company.com" required={true}
+                                <input type="email" id="email" autoComplete='false' className="bg-gray-100 text-gray-900 sm:text-sm rounded-full  block w-full p-2.5 outline-none" placeholder="name@company.com" required={true}
                                     ref={email} />
                             </div>
 
@@ -107,7 +107,8 @@ export const Signup = () => {
 
 
 
-                            <button type="submit" className="w-full text-white bg-purple-600 hover:bg-purple-500  font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                            <button type="submit" 
+                                className="w-full text-white shadow-xl shadow-green-300/50 bg-green-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                                 onClick={signup}>
                                 Create an account</button>
 
@@ -116,7 +117,7 @@ export const Signup = () => {
                             <div className="text-sm font-light text-gray-500 ">
                                 Already have an account?
                                 <Link to="/login">
-                                    <p className="font-medium text-purple-600 hover:underline dark:text-primary-500">
+                                    <p className="font-medium text-indigo-500">
                                         Login here
                                     </p>
                                 </Link>

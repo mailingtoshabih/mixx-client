@@ -11,7 +11,9 @@ export const About = ({ user }) => {
     
     const { user: currentUser } = useContext(AuthContext);
     
-    const [followStatus, setFollowStatus] = useState(currentUser.followings.includes(user?.email));
+    const [followStatus, setFollowStatus] = useState(currentUser?.followings?.includes(user?.email));
+
+    
     
     
     
@@ -59,7 +61,6 @@ export const About = ({ user }) => {
                             <button type="button"
                                 className="text-white my-1 bg-gradient-to-r from-purple-500 to-purple-700 text-semibold rounded-lg text-sm px-5 py-2.5 text-center mr-2"
                                 onClick={followHandler}>
-
                                 {
                                     followStatus ? "Unfollow" : "Follow"
                                 }

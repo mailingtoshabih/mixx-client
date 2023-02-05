@@ -16,9 +16,11 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 // ---------------------------------------------------------------------------
 export const Upload = () => {
-
     const backend = process.env.REACT_APP_BACKEND_URL;
     const { user } = useContext(AuthContext);
+
+    const [shareStatus, setShareStatus] = useState("Post");
+
     const description = useRef();                               //post description
     const [file, setFile] = useState(null);
 
@@ -36,6 +38,7 @@ export const Upload = () => {
 
         if (file) {
 
+            setShareStatus("Posting");
             try{
                 const fileName = Date.now() + file.name;
                 const imageRef = ref(storage, `postimages/${fileName}`);
@@ -50,14 +53,20 @@ export const Upload = () => {
         }
 
         if (file || description.current.value) {
+            setShareStatus("Posting");
             try {
                 const res = await axios.post(backend + '/api/posts', newPost);
-                res && setFile(null);
+                if (res){
+                    setFile(null);
+                    setTimeout( () => setShareStatus("Success"),1000 );
+                }
             }
             catch (exc) {
                 console.log(exc.message);
             }
         }
+
+        setTimeout(()=>setShareStatus("Post"),2000);
     }
 
 
@@ -137,10 +146,10 @@ export const Upload = () => {
                         <p className='text-xs text-gray-500 font-semibold'>Files</p>
                     </label>
 
-                    <button className={`bg-orange-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full`}
+                    <button className={`bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full`}
                         type='submit'>
 
-                        Share
+                        {shareStatus}
                     </button>
 
 

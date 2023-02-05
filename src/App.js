@@ -7,6 +7,7 @@ import { Profile } from './pages/Profile';
 import { Signup } from './pages/Signup';
 import { ErrorPage } from './pages/ErrorPage';
 
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -18,6 +19,8 @@ function App() {
 
 
   const {user} = useContext(AuthContext);
+
+
 
   const router = createBrowserRouter([
 
@@ -33,7 +36,7 @@ function App() {
     },
     {
       path: "/",
-      element: user ? <Homepage/> : <Login/>,
+      element: user  ? <Homepage/> : <Login/>,
       errorElement : <ErrorPage/>
     },
     {
@@ -46,8 +49,9 @@ function App() {
 
 
   return (
+     
     <div className='font-display scroll-smooth '>
-
+      
       <RouterProvider router={router} />
 
     </div>

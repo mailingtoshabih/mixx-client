@@ -62,13 +62,13 @@ export const Sidebar = () => {
             <img className='h-5 my-auto' src={loc} alt="location" />
 
             <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>
-              Somewhere in {user.city}
+              Somewhere on {user.city}
             </div>
           </div>
 
           <div className='flex'>
             <img className='h-5 my-auto' src={briefcase} alt="location" />
-            <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>Web Developer</div>
+            <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>Working as a human</div>
           </div>
 
         </div>

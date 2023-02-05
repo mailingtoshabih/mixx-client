@@ -20,7 +20,9 @@ export const Navbar = () => {
 
     return (
 
-        <div className='relative z-10 mb-16'>
+        <div className='relative z-10 mb-5'>
+            <div className='h-5 bg-green-300'></div>     // Navbar theme
+
 
             <nav className="fixed top-0 backdrop-blur-lg  px-2 sm:px-4 py-1 mx-0 w-full ">
 

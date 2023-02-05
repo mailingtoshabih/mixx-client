@@ -30,7 +30,10 @@ export const Login = () => {
         loginCall({
             email: email.current.value,
             password: password.current.value
-        }, dispatch)
+        }, dispatch);
+
+        console.log(isFetching)
+        
     }
 
 
@@ -83,19 +86,8 @@ export const Login = () => {
                                 </div>
 
 
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-start">
-                                        <div className="flex items-center h-5">
-                                            <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 rounded bg-gray-100" />
-                                        </div>
-                                        <div className="ml-3 text-sm text-gray-600">
-                                            Remember me
-                                        </div>
-                                    </div>
-                                    <a href="/" className="text-sm font-medium text-purple-600 hover:underline ">Forgot password?</a>
-                                </div>
-
-                                <button className="w-full text-white bg-purple-600 hover:bg-purple-500  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                <button 
+                                    className="w-full text-white shadow-xl shadow-green-300/50 bg-green-400  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     onClick={sign}>
                                     Sign in
                                 </button>
@@ -104,7 +96,7 @@ export const Login = () => {
                                 <div className="text-sm font-light text-gray-500 ">
                                     Don’t have an account yet?
                                     <Link to="/signup">
-                                        <p className="font-medium text-purple-600 hover:underline ">Sign up</p>
+                                        <p className="font-medium text-indigo-500">Sign up</p>
                                     </Link>
                                 </div>
 
