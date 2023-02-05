@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 import capitalize from "../ToTitle"
 import { Interact } from './Interact'
 
-const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-
 // ------------------------------------------------------------------------
 
 export const Post = ({ post, user }) => {
 
+  const backend = process.env.REACT_APP_BACKEND_URL;
 
 
   return (
@@ -29,7 +28,7 @@ export const Post = ({ post, user }) => {
           
         </div>
         <div className='text-md my-auto mx-2 font-bold text-gray-700'>
-          {user?.username ? capitalize(user.username) : post?.email?.toUpperCase()}
+          {post?.username && capitalize(post.username)}
         </div>
 
       </div>
@@ -52,9 +51,9 @@ export const Post = ({ post, user }) => {
 
       {/* post image > if available */}
       <div>
-        {post.image ?
+        {post?.image ?
           <>
-            <img src={`http://localhost:3001/images/${post.image}`} alt="PoST"
+            <img src={post.image} alt="PoST"
               className='my-auto w-full rounded-lg object-scale-down' />
           </>
           :
