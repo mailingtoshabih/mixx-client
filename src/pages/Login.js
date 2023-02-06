@@ -91,7 +91,7 @@ export const Login = () => {
                                 <div className="flex justify-between text-sm font-light text-gray-500 ">
                                     Don’t have an account yet?
                                     <Link to="/signup">
-                                        <p className="font-medium text-indigo-600">Sign up</p>
+                                        <p className="font-medium text-indigo-600">Sign Up</p>
                                     </Link>
                                 </div>
 
