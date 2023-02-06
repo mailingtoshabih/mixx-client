@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 
@@ -22,15 +22,19 @@ export const Login = () => {
 
     const { user, isFetching, error, dispatch } = useContext(AuthContext)
 
+    const [signButton, setSignButton] = useState("Sign In");
 
-    const sign = (event) => {
+
+    const sign = async (event) => {
 
         event.preventDefault();
+        setSignButton("Loading");
 
-        loginCall({
+        const res = await loginCall({
             email: email.current.value,
             password: password.current.value
         }, dispatch);
+        res && setSignButton("Sign In")
     }
 
 
@@ -70,7 +74,7 @@ export const Login = () => {
 
                                 <div>
                                     <input type="email" name="email" id="email" placeholder="name@company.com" required={true}
-                                        className="bg-gray-100  outline-none  text-gray-900 sm:text-sm rounded-full block w-full p-2.5"
+                                        className="bg-green-100 shadow-lg shadow-green-100/50 outline-none  text-gray-900 sm:text-sm rounded-full block w-full p-2.5"
                                         ref={email} />
                                 </div>
 
@@ -78,7 +82,7 @@ export const Login = () => {
                                 <div>
                                     <input type="password" name="password" id="password" placeholder="••••••••" required={true}
                                         minLength={"6"}
-                                        className="bg-gray-100 outline-none text-gray-900 sm:text-sm rounded-full block w-full p-2.5 "
+                                        className="bg-green-100 shadow-lg shadow-green-100/50 outline-none text-gray-900 sm:text-sm rounded-full block w-full p-2.5 "
                                         ref={password} />
                                 </div>
 
@@ -87,7 +91,7 @@ export const Login = () => {
                                     className="w-full text-white shadow-xl shadow-green-300/50 bg-green-400  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     onClick={sign}>
                                     
-                                    {isFetching ? "Loading" : "Sign In"}
+                                    {signButton}
     
                                 </button>
 
