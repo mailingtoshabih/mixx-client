@@ -29,7 +29,7 @@ export const Navbar = () => {
                 <div className=" container flex flex-wrap items-center justify-between mx-auto max-w-7xl">
 
                     <Link to={'/'} className="flex items-center">
-                        <img src={logo} className="h-6 mr-3 md:h-8 lg:h-10" alt="Feeny" />
+                        <img src={logo} className="h-6 mr-3 lg:h-8" alt="Feeny" />
                     </Link>
 
 
