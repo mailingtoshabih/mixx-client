@@ -31,9 +31,6 @@ export const Login = () => {
             email: email.current.value,
             password: password.current.value
         }, dispatch);
-
-        console.log(isFetching)
-        
     }
 
 
@@ -41,18 +38,18 @@ export const Login = () => {
     // -------------------------------------------------------------------------------
 
     return (
-        <div className='bg-purple-100 md:flex justify-center'>
+        <div className='bg-purple-100 md:flex justify-center h-screen'>
 
 
 
 
-            {/* <div className='w-1/2 bg-red-100'>
+            <div className='w-1/2 bg-red-100'>
                 <img src="" alt="" />
-            </div> */}
+            </div>
 
 
 
-            <div className='w-1/2 backdrop-blur-xl'>
+            <div className='md:w-1/2 bg-white m-auto md:backdrop-blur-lg'>
 
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
@@ -89,7 +86,9 @@ export const Login = () => {
                                 <button 
                                     className="w-full text-white shadow-xl shadow-green-300/50 bg-green-400  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     onClick={sign}>
-                                    Sign in
+                                    
+                                    {isFetching ? "Loading" : "Sign In"}
+    
                                 </button>
 
 
