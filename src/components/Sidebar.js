@@ -1,16 +1,14 @@
-import shab from '../assets/shab.jpg'
+import avatar from '../assets/nopicture.png'
 import loc from "../assets/loc.png"
 import briefcase from "../assets/briefcase.png"
 import linkedin from "../assets/linkedin.png"
 import twitter from "../assets/twitter.png"
-import person1 from "../assets/person1.jpg"
-import person2 from "../assets/person2.jpg"
-import person3 from "../assets/person3.jpg"
-import person4 from "../assets/person4.jpg"
 
+import capitalize from "../ToTitle"
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Around } from './Around'
 
 
 
@@ -41,13 +39,13 @@ export const Sidebar = () => {
 
           <Link to={`/profile/find/${user.email}`}
             className="flex-none">
-            <img className="h-12 m-1 rounded-full" alt="profilepic"
-              src={shab} />
+            <img className="h-12 m-1 rounded-full" alt=""
+              src={user.profilePicture ? user.profilePicture : avatar} />
           </Link>
 
-          <div className='text-md my-auto mx-2 font-bold text-gray-700'>
-            {user.username.toUpperCase()}
-          </div>
+          <p className='text-sm my-auto mx-2 font-bold text-gray-700'>
+            {capitalize(user.username)}
+          </p>
 
         </div>
 
@@ -96,58 +94,8 @@ export const Sidebar = () => {
 
 
 
-
-      {/* Recent activity div */}
-      <div className='rounded-lg bg-white mb-4 drop-shadow-lg p-3 h-96 '>
-
-        {/* recent data */}
-        <div>
-
-          <div className='text-sm font-bold my-auto text-gray-600'>Recents</div>
-
-          {/* map recent activities here */}
-          <div>
-            <div className='flex my-2'>
-              <img className='h-9  my-auto rounded-full border-2 border-yellow-400' src={person1} alt="linkedin" />
-              <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>Bonnie liked your post</div>
-            </div>
-
-            <div className='flex my-2'>
-              <img className='h-9 my-auto rounded-full border-2 border-yellow-400' src={person2} alt="linkedin" />
-              <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>John sent a request</div>
-            </div>
-
-            <div className='flex my-2'>
-              <img className='h-9 my-auto rounded-full border-2 border-yellow-400' src={person3} alt="linkedin" />
-              <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>You liked Michael's post</div>
-            </div>
-
-            <div className='flex my-2'>
-              <img className='h-9 my-auto rounded-full border-2 border-yellow-400' src={person4} alt="linkedin" />
-              <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>You sent a request to Michael</div>
-            </div>
-
-            <div className='flex my-2'>
-              <img className='h-9  my-auto rounded-full border-2 border-yellow-400' src={person1} alt="linkedin" />
-              <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>Bonnie liked your post</div>
-            </div>
-
-            <div className='flex my-2'>
-              <img className='h-9 my-auto rounded-full border-2 border-yellow-400' src={person2} alt="linkedin" />
-              <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>John sent a request</div>
-            </div>
-
-            <div className='flex my-2'>
-              <img className='h-9 my-auto rounded-full border-2 border-yellow-400' src={person3} alt="linkedin" />
-              <div className='text-xs font-semibold my-auto mx-2 text-gray-500'>You liked Michael's post</div>
-            </div>
-
-
-          </div>
-        </div>
-
-
-
+      <div className='mb-4'>
+        <Around user={user} />
       </div>
 
 

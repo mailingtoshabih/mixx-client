@@ -1,4 +1,4 @@
-import person4 from '../assets/person4.jpg';
+import avatar from '../assets/nopicture.png';
 
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
@@ -6,11 +6,16 @@ import axios from 'axios';
 
 // --------------------------------------------------------------------------
 
+
+
+
+
+
 export const About = ({ user }) => {
+
     const backend = process.env.REACT_APP_BACKEND_URL;
-    
     const { user: currentUser } = useContext(AuthContext);
-    
+
     const [followStatus, setFollowStatus] = useState(currentUser?.followings?.includes(user?.email));
 
     
@@ -46,7 +51,8 @@ export const About = ({ user }) => {
 
                 {/* image */}
                 <div>
-                    <img src={user.profilePicture || person4} className="rounded-lg w-full" alt="profilepic" />
+                    <img src={user.profilePicture ? user.profilePicture : avatar} 
+                    className="rounded-lg max-w-60" alt="" />
 
                     <h1 className='text-lg md:text-xl lg:text-2xl mx-auto font-semibold text-gray-700 mt-4'>
                         {user.username?.toUpperCase()}

@@ -1,24 +1,30 @@
-import shab from '../assets/shab.jpg'
+import avatar from '../assets/nopicture.png'
 import picicon from '../assets/picicon.png'
 import videoicon from '../assets/videoicon.png'
-import audioicon from '../assets/audioicon.png'
 import clipicon from '../assets/clipicon.png'
 
-import { AuthContext } from '../context/AuthContext'
-import { Link } from 'react-router-dom'
 import { useState, useEffect, useContext, useRef } from 'react'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { AuthContext } from '../context/AuthContext'
+import { Link, useNavigate } from 'react-router-dom'
+import { storage } from '../firebase';
 import axios from 'axios'
 
-import { storage } from '../firebase';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 
 // ---------------------------------------------------------------------------
-export const Upload = () => {
-    const backend = process.env.REACT_APP_BACKEND_URL;
-    const { user } = useContext(AuthContext);
 
+
+
+
+
+export const Upload = () => {
+
+
+    const backend = process.env.REACT_APP_BACKEND_URL;
+    const { user, dispatch } = useContext(AuthContext);
+ 
     const [shareStatus, setShareStatus] = useState("Post");
 
     const description = useRef();                               //post description
@@ -33,32 +39,33 @@ export const Upload = () => {
         const newPost = {
             username: user?.username,
             email: user?.email,
-            description: description?.current.value
+            description: description?.current.value,
+            profilePicture : user?.profilePicture
         }
 
         if (file) {
 
             setShareStatus("Posting");
-            try{
+            try {
                 const fileName = Date.now() + file.name;
                 const imageRef = ref(storage, `postimages/${fileName}`);
                 const isUploaded = await uploadBytes(imageRef, file);
 
                 isUploaded && console.log("Uploaded...");
-                
+
                 const imgUrl = await getDownloadURL(imageRef);
                 newPost.image = imgUrl;
             }
-            catch(exc){} 
+            catch (exc) { }
         }
 
         if (file || description.current.value) {
             setShareStatus("Posting");
             try {
                 const res = await axios.post(backend + '/api/posts', newPost);
-                if (res){
+                if (res) {
                     setFile(null);
-                    setTimeout( () => setShareStatus("Success"),1000 );
+                    setTimeout(() => {setShareStatus("Success")}, 1000);
                 }
             }
             catch (exc) {
@@ -66,10 +73,8 @@ export const Upload = () => {
             }
         }
 
-        setTimeout(()=>setShareStatus("Post"),2000);
+        setTimeout(() => setShareStatus("Post"), 2000);
     }
-
-
 
 
 
@@ -87,16 +92,18 @@ export const Upload = () => {
             {/* Profile pic and write article section */}
             <div className='flex justify-start'>
 
+
                 <div className='w-2/12 my-auto mx-1'>
                     <Link to={`/profile/find/${user.email}`} className="flex-none">
-                        <img src={shab} className="h-12  rounded-full" alt="profilepic" />
+                        <img src={user.profilePicture ? user.profilePicture : avatar} 
+                        className="h-12  rounded-full" alt="profilepic" />
                     </Link>
                 </div>
 
 
                 <div className='w-10/12 mx-1'>
 
-                    <input type="text" id="default-input" className="bg-gray-100 h-full outline-none text-gray-900 text-xs rounded-full block w-full py-2.5 px-4 focus-none" autoComplete='off'
+                    <input type="text" className="bg-gray-100 h-full outline-none text-gray-900 text-xs rounded-full block w-full py-2.5 px-4 focus-none" autoComplete='off'
                         placeholder="What's on your mind..." spellCheck="false"
                         ref={description}
                     />
@@ -104,11 +111,12 @@ export const Upload = () => {
 
             </div>
 
+
             <hr className='w-11/12 mx-auto my-3 ' />
 
 
             {/* button to upload */}
-            <form action="" encType="multipart/form-data" onSubmit={shareHandler} >
+            <form action="" onSubmit={shareHandler} >
 
                 {
                     file ?
@@ -125,30 +133,25 @@ export const Upload = () => {
                         ""
                 }
 
-                <div className={`${file ? "flex" : "flex"} justify-evenly mt-5`}>
+                <div className={`flex justify-evenly mt-5`}>
 
                     <label htmlFor='file'>
-                        <img src={picicon} className="h-6 mx-auto" alt="profilepic" />
+                        <img src={picicon} className="h-6 mx-auto" alt=""/>
                         <p className='text-xs text-gray-500 font-semibold'>Image</p>
                         <input type="file" id='file' accept="image/*" className='hidden'
                             onChange={uploadBar} />
                     </label>
                     <label htmlFor='file'>
-                        <img src={videoicon} className="h-6 mx-auto" alt="profilepic" />
+                        <img src={videoicon} className="h-6 mx-auto" alt="" />
                         <p className='text-xs text-gray-500 font-semibold'>Records</p>
                     </label>
                     <label htmlFor='file'>
-                        <img src={audioicon} className="h-6 mx-auto" alt="profilepic" />
-                        <p className='text-xs text-gray-500 font-semibold'>Audio</p>
-                    </label>
-                    <label htmlFor='file'>
-                        <img src={clipicon} className="h-6 mx-auto" alt="profilepic" />
+                        <img src={clipicon} className="h-6 mx-auto" alt="" />
                         <p className='text-xs text-gray-500 font-semibold'>Files</p>
                     </label>
 
                     <button className={`bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full`}
                         type='submit'>
-
                         {shareStatus}
                     </button>
 

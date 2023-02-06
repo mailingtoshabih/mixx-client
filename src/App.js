@@ -6,6 +6,7 @@ import { Login } from './pages/Login';
 import { Profile } from './pages/Profile';
 import { Signup } from './pages/Signup';
 import { ErrorPage } from './pages/ErrorPage';
+import { Creator } from './pages/Creator';
 
 
 import {
@@ -42,6 +43,11 @@ function App() {
     {
       path: "/profile/find/:email",
       element: user ? <Profile/> : <Login/>,
+      errorElement : <ErrorPage/>
+    },
+    {
+      path: "/creator",
+      element: user ? <Creator/> : <Login/>,
       errorElement : <ErrorPage/>
     }
   ]);

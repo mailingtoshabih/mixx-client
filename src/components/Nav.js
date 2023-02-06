@@ -3,7 +3,7 @@ import shab from '../assets/shab.jpg';
 import { Dropdown } from './Dropdown';
 // import settingsicon from '../assets/settingsicon.png';
 import { AuthContext } from '../context/AuthContext';
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -11,8 +11,10 @@ import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
 
+
     const { user, isFetching, error, dispatch } = useContext(AuthContext)
 
+    
 
     // change ambience button
 
@@ -21,11 +23,11 @@ export const Navbar = () => {
     return (
 
         <div className='relative z-10 mb-5'>
-            <div className='h-5 bg-green-300'></div>     // Navbar theme
+
+            <div className='h-5 bg-indigo-600'></div>     
 
 
             <nav className="fixed top-0 backdrop-blur-lg  px-2 sm:px-4 py-1 mx-0 w-full ">
-
                 <div className=" container flex flex-wrap items-center justify-between mx-auto max-w-7xl">
 
                     <Link to={'/'} className="flex items-center">
@@ -46,10 +48,16 @@ export const Navbar = () => {
 
 
 
+                        <button
+                            className='hidden md:block w-fit bg-yellow-400 p-1 md:p-3 rounded-lg text-sm font-semibold text-gray-900'
+                            onClick={() => window.location.reload()}>
+                            Logout
+                        </button>
+
 
                         {/* on click profile open this */}
                         {/* <!-- Dropdown menu --> */}
-                        <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                        {/* <div className="hidden z-50 my-4 text-base list-none bg-white divide-y divide-gray-100" id="user-dropdown">
 
                             <div className="px-4 py-3">
                                 <span className="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
@@ -69,13 +77,13 @@ export const Navbar = () => {
                                     <a href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
 
 
 
                         {/* hamburger here */}
                         <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-200"  aria-controls="mobile-menu-2" aria-expanded="false"
-                            onClick={() => console.log("Hcliicki")}>
+                            onClick={()=>{}}>
 
 
                             <span className="sr-only">Open main menu</span>
@@ -90,15 +98,16 @@ export const Navbar = () => {
 
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
                         <ul className="flex flex-col p-4 mt-4  md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0">
+                            
                             <li>
                                 <Link to={'/'} className="block py-2 pl-3 pr-4 hover:text-blue-600 rounded md:bg-transparent md:p-0 " aria-current="page">Timeline</Link>
                             </li>
                             <li>
                                 <Link to={`/profile/find/${user.email}`} className="block py-2 pl-3 pr-4 font-display  md:hover:text-blue-700 md:p-0">Profile</Link>
                             </li>
-                            <li>
-                                <Link to={'/'} className="block py-2 pl-3 pr-4 font-display  md:hover:text-blue-700 md:p-0">Chat</Link>
-                            </li>
+                            {/* <li>
+                                <Link to={'/creator'} className="block py-2 pl-3 pr-4 font-display  md:hover:text-blue-700 md:p-0">Creator</Link>
+                            </li> */}
                             
                         </ul>
                     </div>
@@ -106,8 +115,6 @@ export const Navbar = () => {
 
                 </div>
             </nav>
-
-
 
         </div>
 

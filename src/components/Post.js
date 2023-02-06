@@ -1,4 +1,4 @@
-import shab from '../assets/person2.jpg'
+import avatar from '../assets/nopicture.png'
 
 import { Link } from 'react-router-dom';
 import capitalize from "../ToTitle"
@@ -19,11 +19,11 @@ export const Post = ({ post }) => {
 
       {/* Profile pic and name */}
       <div className="flex justify-start rounded-lg h-1/4 my-auto">
-
+        
         <div  className="flex-none">
 
           <Link>
-            <img src={shab} className="h-12 m-1 rounded-full " alt="profilepic" />
+            <img  src={post.profilePicture || avatar} className="h-12 m-1 rounded-full " alt="profilepic" />
           </Link>
           
         </div>
