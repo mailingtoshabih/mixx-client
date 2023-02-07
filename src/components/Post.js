@@ -1,14 +1,16 @@
 import avatar from '../assets/nopicture.png'
-
 import { Link } from 'react-router-dom';
 import capitalize from "../ToTitle"
 import { Interact } from './Interact'
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 // ------------------------------------------------------------------------
 
 export const Post = ({ post }) => {
 
   const backend = process.env.REACT_APP_BACKEND_URL;
+  const { user } = useContext(AuthContext);
 
 
   return (
@@ -18,14 +20,14 @@ export const Post = ({ post }) => {
 
 
       {/* Profile pic and name */}
-      <div className="flex justify-start rounded-lg h-1/4 my-auto">
-        
-        <div  className="flex-none">
+      <div className="flex justify-start gap-3 rounded-lg h-1/4 my-auto">
 
-          <Link>
-            <img  src={post.profilePicture || avatar} className="h-12 m-1 rounded-full " alt="profilepic" />
+        <div className="flex-none">
+
+          <Link to={`/profile/find/${post?.email}`}>
+            <img src={post.profilePicture || avatar} className="h-12 m-1 rounded-full " alt="profilepic" />
           </Link>
-          
+
         </div>
         <div className='text-md my-auto mx-2 font-bold text-gray-700'>
           {post?.username && capitalize(post.username)}
@@ -53,7 +55,7 @@ export const Post = ({ post }) => {
       <div>
         {post?.image ?
           <>
-            <img src={post.image} alt="PoST"
+            <img src={post.image} alt=""
               className='my-auto w-full rounded-lg object-scale-down' />
           </>
           :
@@ -66,6 +68,10 @@ export const Post = ({ post }) => {
 
       {/* Like comment and counter */}
       <Interact post={post} />
+
+
+
+      
 
     </div>
   )

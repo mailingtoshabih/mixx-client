@@ -16,14 +16,12 @@ import { Link } from 'react-router-dom';
 
 export const Login = () => {
 
-
     const email = useRef();
     const password = useRef();
 
     const { user, isFetching, error, dispatch } = useContext(AuthContext)
 
     const [signButton, setSignButton] = useState("Sign In");
-
 
     const sign = async (event) => {
 
@@ -46,11 +44,10 @@ export const Login = () => {
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
 
-
-
                     <a href="/" className="flex items-center mb-6">
                         <img className="h-12 mr-2" src={logo} alt="logo" />
                     </a>
+
 
 
                     <div className="w-full rounded-xl md:mt-0 sm:max-w-md xl:p-0 ">
@@ -80,7 +77,7 @@ export const Login = () => {
 
 
                                 <button 
-                                    className="w-full text-white shadow-xl shadow-green-300/50 bg-green-400  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                    className="w-full text-white shadow-xl shadow-purple-500/50 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     onClick={sign}>
                                     
                                     {signButton}

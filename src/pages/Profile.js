@@ -35,14 +35,14 @@ export const Profile = () => {
 
         const fetchPosts = async () => {
 
-            try{
+            try {
                 const userRes = await axios.get(backend + `/api/users/find/${params.email}`);
                 setUser(userRes.data[0]);
-                
+
                 const postRes = await axios.get(backend + `/api/posts/${params.email}`);
                 setMyPosts(postRes.data.reverse());
             }
-            catch(exc){
+            catch (exc) {
                 console.log(exc.message);
             }
         }
@@ -132,17 +132,14 @@ export const Profile = () => {
                 <div className="w-full md:w-3/4 lg:w-2/4 h-fit  mx-auto md:mx-2 
                     rounded-lg overflow-y-auto scrollbar-hide">
 
-                    {/* put image here before md and hide top image */}
 
                     {/* about me */}
                     <div className="block md:hidden">
                         <About user={user} />
-                        <div></div>
                     </div>
 
 
                     {
-
                         myposts.length > 0 ?
                             (
                                 myposts.map((post) => (
@@ -154,7 +151,6 @@ export const Profile = () => {
                                 Not posted anything yet...
                             </div>
                     }
-
                 </div>
 
 

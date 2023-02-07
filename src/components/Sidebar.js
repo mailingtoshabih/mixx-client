@@ -9,6 +9,8 @@ import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { Around } from './Around'
+import { Metadata } from './Metadata'
+
 
 
 
@@ -32,7 +34,7 @@ export const Sidebar = () => {
 
 
       {/* About me div */}
-      <div className=' rounded-lg bg-white mb-4  drop-shadow-lg p-3'>
+      <div className='flex-none rounded-lg bg-white mb-4  drop-shadow-lg p-3'>
 
         {/* Profile pic and name div */}
         <div className="flex justify-start rounded-lg h-1/4 my-auto">
@@ -94,34 +96,11 @@ export const Sidebar = () => {
 
 
 
-      <div className='mb-4'>
-        <Around user={user} />
+      <div className='flex-none mb-4 shrink-0'>
+        <Around user={user} h={60} />
       </div>
 
-
-
-
-      {/* Profile metadata */}
-      <div className='rounded-lg bg-white mb-3 drop-shadow-lg p-4'>
-
-        {/* profile metadata > who viewed your profile */}
-        <div>
-
-          <div className='text-sm font-bold my-auto text-gray-600'>Activities</div>
-
-          <div className='flex justify-between my-2'>
-            <div className='text-xs font-semibold my-auto  text-gray-500'>Who's viewed your profile</div>
-            <div className='text-xs font-semibold my-auto  text-indigo-500'>53</div>
-          </div>
-
-          <div className='flex justify-between my-2'>
-            <div className='text-xs font-semibold my-auto  text-gray-500'>Your Followers</div>
-            <div className='text-xs font-semibold my-auto  text-indigo-500'>3443</div>
-          </div>
-
-        </div>
-
-      </div>
+      <Metadata />
 
 
     </div>

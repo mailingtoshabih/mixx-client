@@ -12,8 +12,6 @@ export const loginCall = async (userCredentials, dispatch) => {
     try{
         const res = await axios.post(`${backend}/api/auth/login`, userCredentials);
         dispatch( { type : "LOGIN_SUCCESS", payload:res.data } );
-        res && localStorage.setItem('user', JSON.stringify(res.data));  //remove if problem persists
-
     }
     catch(exc){
         dispatch( {type : "LOGIN_FAILURE", payload : exc.message})

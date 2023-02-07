@@ -64,7 +64,7 @@ export const Rightbar = () => {
 
 
         {/* map this */}
-        <Followings />
+        <Followings h={60}/>
 
 
 

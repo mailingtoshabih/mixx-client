@@ -10,7 +10,7 @@ import { User } from "./User";
 // ---------------------------------------------------------------
 
 
-export const Around = ({ user }) => {
+export const Around = ({ user, h }) => {
 
     const backend = process.env.REACT_APP_BACKEND_URL;
     const [users, setUsers] = useState([]);
@@ -29,16 +29,17 @@ export const Around = ({ user }) => {
 
     return (
         <>
-            <div className='rounded-lg bg-white drop-shadow-lg p-3 h-60 overflow-x-hidden scrollbar-hide'>
-
-                <div className='text-sm font-bold my-auto text-gray-600 mb-3'>Around You</div>
+            <div className={`rounded-lg shadow-lg shadow-green-200 p-3 h-${h} overflow-x-hidden scrollbar-hide`}>
+                
+                <div className='text-md font-bold my-auto text-gray-700 mb-3'>Around You</div>
 
 
                 {/* map recent activities here */}
                 <div>
                     {
                         users?.map((user) => (
-                            <User pic={user?.profilePicture} name={user?.username} key={user?.email}/>
+
+                            <User otheruser = {user}/>
                         ))
                     }
                 </div>

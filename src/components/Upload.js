@@ -6,8 +6,9 @@ import clipicon from '../assets/clipicon.png'
 import { useState, useEffect, useContext, useRef } from 'react'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { AuthContext } from '../context/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useNavigation } from 'react-router-dom'
 import { storage } from '../firebase';
+import { redirect } from "react-router-dom";
 import axios from 'axios'
 
 
@@ -21,7 +22,6 @@ import axios from 'axios'
 
 export const Upload = () => {
 
-
     const backend = process.env.REACT_APP_BACKEND_URL;
     const { user, dispatch } = useContext(AuthContext);
  
@@ -30,10 +30,10 @@ export const Upload = () => {
     const description = useRef();                               //post description
     const [file, setFile] = useState(null);
 
-
+    useNavigation();
 
     const shareHandler = async (e) => {
-
+        
         e.preventDefault();
 
         const newPost = {
@@ -74,6 +74,7 @@ export const Upload = () => {
         }
 
         setTimeout(() => setShareStatus("Post"), 2000);
+        
     }
 
 

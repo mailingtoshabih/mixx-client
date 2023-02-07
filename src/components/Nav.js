@@ -5,6 +5,7 @@ import { Dropdown } from './Dropdown';
 import { AuthContext } from '../context/AuthContext';
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { Prompt } from './Prompt';
 
 
 
@@ -14,7 +15,7 @@ export const Navbar = () => {
 
     const { user, isFetching, error, dispatch } = useContext(AuthContext)
 
-    
+
 
     // change ambience button
 
@@ -24,7 +25,7 @@ export const Navbar = () => {
 
         <div className='relative z-10 mb-5'>
 
-            <div className='h-5 bg-indigo-600'></div>     
+            <div className='h-5 bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600'></div>
 
 
             <nav className="fixed top-0 backdrop-blur-lg  px-2 sm:px-4 py-1 mx-0 w-full ">
@@ -35,13 +36,14 @@ export const Navbar = () => {
                     </Link>
 
 
+
                     <div className="flex items-center md:order-2">
 
                         {/* profile button */}
                         <button type="button" className="flex mr-3 text-sm bg-white rounded-full md:mr-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
 
                             <span className="sr-only">Open user menu</span>
-                            
+
                             {/* Dropdown here */}
                             {/* <Dropdown/> */}
                         </button>
@@ -49,41 +51,21 @@ export const Navbar = () => {
 
 
                         <button
-                            className='hidden md:block w-fit bg-yellow-400 p-1 md:p-3 rounded-lg text-sm font-semibold text-gray-900'
+                            className='hidden md:block w-fit  p-1 md:p-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-blue-600'
                             onClick={() => window.location.reload()}>
                             Logout
                         </button>
 
 
+
                         {/* on click profile open this */}
-                        {/* <!-- Dropdown menu --> */}
-                        {/* <div className="hidden z-50 my-4 text-base list-none bg-white divide-y divide-gray-100" id="user-dropdown">
-
-                            <div className="px-4 py-3">
-                                <span className="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                                <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@feeny.com</span>
-                            </div>
-
-
-                            <ul className="py-1" aria-labelledby="user-menu-button">
-                                <li>
-                                    <a href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
-                                </li>
-                                <li>
-                                    <a href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                                </li>
-
-                                <li>
-                                    <a href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                                </li>
-                            </ul>
-                        </div> */}
+                        {/* <Prompt/> */}
 
 
 
                         {/* hamburger here */}
-                        <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-200"  aria-controls="mobile-menu-2" aria-expanded="false"
-                            onClick={()=>{}}>
+                        <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-200" aria-controls="mobile-menu-2" aria-expanded="false"
+                            onClick={() => { }}>
 
 
                             <span className="sr-only">Open main menu</span>
@@ -98,17 +80,17 @@ export const Navbar = () => {
 
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
                         <ul className="flex flex-col p-4 mt-4  md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0">
-                            
+
                             <li>
                                 <Link to={'/'} className="block py-2 pl-3 pr-4 hover:text-blue-600 rounded md:bg-transparent md:p-0 " aria-current="page">Timeline</Link>
                             </li>
                             <li>
+                                <Link to={'/people'} className="block py-2 pl-3 pr-4 font-display  md:hover:text-blue-700 md:p-0">People</Link>
+                            </li>
+                            <li>
                                 <Link to={`/profile/find/${user.email}`} className="block py-2 pl-3 pr-4 font-display  md:hover:text-blue-700 md:p-0">Profile</Link>
                             </li>
-                            {/* <li>
-                                <Link to={'/creator'} className="block py-2 pl-3 pr-4 font-display  md:hover:text-blue-700 md:p-0">Creator</Link>
-                            </li> */}
-                            
+
                         </ul>
                     </div>
 

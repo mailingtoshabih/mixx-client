@@ -135,7 +135,7 @@ export const Signup = () => {
 
                                 <div>
                                     <label htmlFor="email" className='text-xs text-gray-500 font-semibold'>Your email</label>
-                                    <input type="email" id="email" autoComplete='false' className=" text-gray-900 sm:text-sm rounded-full  block w-full p-2.5 outline-none" placeholder="name@company.com" required={true}
+                                    <input type="email" id="email" autoComplete={false} className=" text-gray-900 sm:text-sm rounded-full  block w-full p-2.5 outline-none" placeholder="name@company.com" required='true'
                                         ref={email} />
                                 </div>
 
@@ -151,7 +151,7 @@ export const Signup = () => {
 
 
                                 <button type="submit"
-                                    className="w-full text-white shadow-xl shadow-green-300/50 bg-green-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                                    className="w-full text-white shadow-xl shadow-purple-500/50 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     onClick={signup}>
                                     {signupButton}
                                 </button>

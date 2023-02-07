@@ -6,7 +6,7 @@ import { Login } from './pages/Login';
 import { Profile } from './pages/Profile';
 import { Signup } from './pages/Signup';
 import { ErrorPage } from './pages/ErrorPage';
-import { Creator } from './pages/Creator';
+import { People } from './pages/People';
 
 
 import {
@@ -46,8 +46,8 @@ function App() {
       errorElement : <ErrorPage/>
     },
     {
-      path: "/creator",
-      element: user ? <Creator/> : <Login/>,
+      path: "/people",
+      element: user ? <People/> : <Login/>,
       errorElement : <ErrorPage/>
     }
   ]);
