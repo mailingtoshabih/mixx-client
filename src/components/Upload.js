@@ -151,7 +151,7 @@ export const Upload = () => {
                         <p className='text-xs text-gray-500 font-semibold'>Files</p>
                     </label>
 
-                    <button className={`bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full`}
+                    <button className={`shadow-lg shadow-purple-500/50 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-2 px-4 rounded-full`}
                         type='submit'>
                         {shareStatus}
                     </button>

@@ -33,7 +33,7 @@ export const User = ({ otheruser }) => {
         <>
             <Link to={`/profile/find/${otheruser?.email}`}>
 
-                <div className='p-2 rounded-lg flex justify-between my-4 font-semibold text-xs hover:bg-gray-100'>
+                <div className='p-1 rounded-lg flex justify-between my-4 font-semibold text-xs hover:bg-gray-100'>
                     <div className="flex ">
 
                         <img className='object-contain h-12 my-auto rounded-lg'
