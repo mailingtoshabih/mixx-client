@@ -22,14 +22,13 @@ export const People = () => {
             <Navbar />
 
             {/* People Nav */}
-            <div className='flex p-5 text-sm font-semibold text-indigo-500 justify-evenly border-y w-full md:w-3/4 mt-16 mx-auto max-w-7xl'>
+            <div className='flex p-5 text-sm font-semibold text-indigo-600 justify-evenly border-y w-full md:w-3/4 mt-10 md:mt-16 mx-auto max-w-7xl'>
 
 
                 <button className='hover:text-purple-600'
                     onClick={() => setPeopleNav("Around")}>
                     Around You
                 </button>
-
 
 
                 <button className='hover:text-purple-600'

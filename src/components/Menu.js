@@ -1,0 +1,58 @@
+import { Link } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext"
+import { useContext } from "react"
+// --------------------------------------------------
+
+
+
+export const Menu = () => {
+
+    const {user} = useContext(AuthContext);
+
+    return (
+        <div className={`rounded-xl mt-10 md:hidden px-8 py-2 h-fit my-auto flex gap-10 items-center w-full overflow-y-auto scrollbar-hide font-semibold text-indigo-600`}>
+
+            <Link to="/">
+                <button className='my-auto'>Timeline</button>
+            </Link>
+
+            <Link to="/people">
+                <button className='my-auto'>People</button>
+            </Link>
+
+            <Link to={`/profile/find/${user.email}`}>
+                <button className='my-auto'>Profile</button>
+            </Link>
+
+            <Link to="/people">
+                <button className='my-auto'>Followings</button>
+            </Link>
+
+            <Link to="/people">
+                <button className='my-auto'>Followers</button>
+            </Link>
+
+            <Link>
+                <button className='my-auto'>Settings</button>
+            </Link>
+            
+            <button className='my-auto text-red-500'
+                onClick={()=>window.location.reload()}
+            >Logout</button>
+            
+
+
+           
+
+
+        </div>
+    )
+}
+
+
+//  timeline profile
+//  People Edit
+//  Logout creator
+
+
+// filler - aroun, followers, followings, Homepage
