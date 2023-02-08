@@ -45,7 +45,7 @@ export const Interact = ({ post }) => {
 
 
 
-    const [confirm, setConfirm] = useState("Delete this post");
+    const [confirm, setConfirm] = useState("Delete");
 
     const deleteHandler = async () => {
   
@@ -69,7 +69,7 @@ export const Interact = ({ post }) => {
 
 
                     {isLiked ?
-                        <img src={redheart} alt="heart" className='my-auto h-4' onClick={likeHandler} />
+                        <img src={redheart} alt="heart" className='my-auto h-4' onClick={likeHandler}/>
                         :
                         <img src={blueheart} alt="heart" className='my-auto h-4' onClick={likeHandler} />
                     }

@@ -15,26 +15,33 @@ export const About = ({ user }) => {
 
     const backend = process.env.REACT_APP_BACKEND_URL;
     const { user: currentUser } = useContext(AuthContext);
+    const [followStatus, setFollowStatus] = useState(false);
 
-    const [followStatus, setFollowStatus] = useState(currentUser?.followings?.includes(user?.email));
 
-    
-    
-    
+    useState( () => {
+        const search = async () => {
+            const res = await axios
+                .get(backend + `/api/users/${user?.email}/isfollowing/${currentUser?.email}`); 
+            
+            res && setFollowStatus(res?.data);
+        }
+        search()
+    },[currentUser, user?.email])
+
     
     const followHandler = async () => {
         
         try {
             if (followStatus) {
-                await axios.put(`${backend}/api/users/unfollow/${user.email}`,
+                const res1 = await axios.put(`${backend}/api/users/unfollow/${user.email}`,
                     { email: currentUser.email });
-                setFollowStatus(false);
+                res1 && setFollowStatus(false);
                 
             }
             if (!followStatus) {
-                await axios.put(`${backend}/api/users/follow/${user.email}`,
+                const res2 = await axios.put(`${backend}/api/users/follow/${user.email}`,
                 { email: currentUser.email });
-                setFollowStatus(true);
+                res2 && setFollowStatus(true);
             }
         }
         catch (exc) { console.log(exc.message) }
@@ -51,11 +58,11 @@ export const About = ({ user }) => {
 
                 {/* image */}
                 <div>
-                    <img src={user.profilePicture ? user.profilePicture : avatar} 
+                    <img src={user?.profilePicture ? user?.profilePicture : avatar} 
                     className="rounded-lg max-w-60" alt="" />
 
                     <h1 className='text-lg md:text-xl lg:text-2xl mx-auto font-semibold text-gray-700 mt-4'>
-                        {user.username?.toUpperCase()}
+                        {user?.username?.toUpperCase()}
                     </h1>
 
                     <div className='text-md font-semibold my-2 text-purple-600'>

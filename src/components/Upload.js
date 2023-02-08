@@ -87,7 +87,7 @@ export const Upload = () => {
     // --------------------------------------------------------------
 
     return (
-        <div className='bg-white w-full rounded-lg p-4 drop-shadow-md mb-4'>
+        <div className='bg-white w-full rounded-lg p-4 shadow-md shadow-purple-200/50 mb-4'>
 
 
             {/* Profile pic and write article section */}

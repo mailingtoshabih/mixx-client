@@ -79,7 +79,7 @@ export const Signup = () => {
 
     return (
         <div className='bg-gradient-to-r from-white via-red-100 to-white h-screen justify-center py-5'>
-            <div className='flex rounded-xl  bg-gradient-to-r from-white via-red-100 m-auto md:backdrop-blur-lg'>
+            <div className='flex rounded-xl   m-auto md:backdrop-blur-lg'>
                 <div className="w-full lg:w-2/4 flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
 

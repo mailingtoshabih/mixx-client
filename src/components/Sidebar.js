@@ -34,7 +34,7 @@ export const Sidebar = () => {
 
 
       {/* About me div */}
-      <div className='flex-none rounded-lg bg-white mb-4  drop-shadow-lg p-3'>
+      <div className='flex-none rounded-lg bg-white mb-4 shadow-md shadow-purple-200/50 p-3'>
 
         {/* Profile pic and name div */}
         <div className="flex justify-start rounded-lg h-1/4 my-auto">

@@ -22,9 +22,9 @@ export const Navbar = () => {
 
     return (
 
-        <div className='relative z-10 mb-5'>
+        <div className='relative z-10 mb-10'>
 
-            <div className='h-1 bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600'></div>
+            <div className='h-1 bg-gradient-to-r from-purple-600 to-blue-600'></div>
 
             <Menu />
 

@@ -6,7 +6,7 @@ export const Metadata = () => {
 
 
 
-            <div className='rounded-lg bg-white my-3 drop-shadow-lg p-4'>
+            <div className='rounded-lg bg-white my-3 shadow-md shadow-purple-200/50 p-4'>
 
                 {/* profile metadata > who viewed your profile */}
                 <div>

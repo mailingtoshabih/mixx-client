@@ -15,7 +15,7 @@ export const Post = ({ post }) => {
 
   return (
 
-    <div className='mb-5 w-full bg-white rounded-lg p-2 md:p-4 shadow-md shadow-green-200/50'>
+    <div className='mb-5 w-full bg-white rounded-lg p-2 md:p-4 shadow-md shadow-purple-200/50'>
 
 
 

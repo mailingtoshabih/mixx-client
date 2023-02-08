@@ -68,7 +68,7 @@ export const Profile = () => {
                 <div className="hidden md:block w-1/4 rounded-lg shrink-0">
 
                     {/* about me */}
-                    <About user={user} />
+                    <About user={user} key={user._id} />
 
 
 

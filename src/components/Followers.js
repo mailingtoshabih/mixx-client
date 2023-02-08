@@ -38,7 +38,7 @@ export const Followers = ({user,h}) => {
 
 
 
-            <div className={`rounded-lg shadow-lg shadow-green-200 p-3 h-${h} overflow-x-hidden scrollbar-hide`}>
+            <div className={`rounded-lg shadow-md shadow-purple-200/50 p-3 h-${h} overflow-x-hidden scrollbar-hide`}>
 
                 <div className='text-md font-bold my-auto text-gray-700 mb-3'>Followers</div>
 
@@ -50,7 +50,7 @@ export const Followers = ({user,h}) => {
                         (
                             followersList.map( (follower) => (
                                 
-                                <User otheruser={follower}  />
+                                <User otheruser={follower} key={follower._id} />
                                 // <Followee otheruser={u}/>
                                 
                                 ))

@@ -27,7 +27,7 @@ export const Feed = () => {
     }, [user]
     );
 
-
+    
 
 
     return (

@@ -13,7 +13,7 @@ export const Ads = () => {
 
 
             {/* Advertsement div */}
-            <div className='p-3 my-4 rounded-lg w-full bg-white drop-shadow-lg'>
+            <div className='p-3 my-4 rounded-lg w-full bg-white shadow-md shadow-purple-200/50'>
 
                 <div className='flex justify-between'>
                     <p className='text-sm font-bold text-gray-500 mb-2 my-auto'>Advertisements</p>

@@ -27,7 +27,7 @@ export const Followings = ({h}) => {
 
     return (
 
-        <div className={`p-3 h-${h} shrink-0 overflow-auto scrollbar-hide shadow-lg shadow-green-200 rounded-lg`}>
+        <div className={`p-3 h-${h} shrink-0 overflow-auto scrollbar-hide shadow-md shadow-purple-200/50 rounded-lg`}>
 
             
 
@@ -42,9 +42,9 @@ export const Followings = ({h}) => {
             {
                 followings?.length > 0 ?
                     (
-                        followings.map((f) => (
+                        followings.map((follower) => (
                             // <Followee key={f._id} followee={f} />
-                            <User otheruser={f}/>
+                            <User otheruser={follower} key={follower._id}/>
                         ))
                     )
                     :
