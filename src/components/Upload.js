@@ -8,7 +8,6 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { AuthContext } from '../context/AuthContext'
 import { Link, useNavigate, useNavigation } from 'react-router-dom'
 import { storage } from '../firebase';
-import { redirect } from "react-router-dom";
 import axios from 'axios'
 
 

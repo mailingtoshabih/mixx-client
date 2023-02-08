@@ -1,14 +1,7 @@
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
-
 import { Followings } from './Followings';
 import { Ads } from './Ads';
-
-
-
-import person1 from "../assets/person1.jpg"
-import person2 from "../assets/person2.jpg"
-import person3 from "../assets/person3.jpg"
 
 
 

@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Navbar } from '../components/Nav';
-
 import { Around } from '../components/Around';
 import { Followings } from '../components/Followings';
 import { Followers } from '../components/Followers';

@@ -1,8 +1,5 @@
 import blueheart from '../assets/blueheart.png'
-import copy from '../assets/duplicate.png'
-import repost from '../assets/repost.png'
 import redheart from '../assets/redheart.png'
-import shareicon from '../assets/share.png'
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';

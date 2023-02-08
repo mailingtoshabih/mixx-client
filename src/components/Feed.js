@@ -1,8 +1,6 @@
 import { Upload } from './Upload';
 import { Post } from './Post';
-
 import axios from "axios";
-
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
