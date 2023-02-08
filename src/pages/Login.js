@@ -1,7 +1,5 @@
 import { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
-
-import bg from '../assets/registerbg.png'
 import logo from '../assets/logo.png';
 import { loginCall } from "../Apicalls"
 import { Link } from 'react-router-dom';
