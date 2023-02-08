@@ -6,7 +6,6 @@ import avatar from "../assets/avatar.png"
 
 
 import { Navbar } from "../components/Nav";
-import { Followings } from "../components/Followings";
 import { Metadata } from "../components/Metadata";
 import { Post } from "../components/Post";
 import { Ads } from "../components/Ads";
