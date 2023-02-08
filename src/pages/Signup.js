@@ -5,7 +5,6 @@ import axios from 'axios';
 import { loginCall } from "../Apicalls"
 // -----------------------------------------------
 import logo from '../assets/logo.png';
-import bg from '../assets/registerbg.png';
 import nopicture from '../assets/nopicture.png';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
