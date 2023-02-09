@@ -22,7 +22,7 @@ export const Feed = () => {
         }
 
         fetchPosts();
-    }, [user?.email, posts]
+    }, [user?.email]
     );
 
     

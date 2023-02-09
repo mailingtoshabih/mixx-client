@@ -165,9 +165,6 @@ export const Signup = () => {
 
 
 
-
-
-
                                 <button type="submit"
                                     className="w-full text-white shadow-xl shadow-purple-500/50 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                     onClick={signup}>
