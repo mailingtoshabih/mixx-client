@@ -47,7 +47,7 @@ export const Profile = () => {
         }
         fetchPosts();
 
-    }, []    //try empty array
+    }, [backend,params.email]    //try empty array
     )
 
 

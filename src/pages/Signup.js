@@ -64,9 +64,28 @@ export const Signup = () => {
             console.log(e.message)
         }
         setSignupButton("Create an account");
-
     }
 
+    const date = String(Date.now()).substring(7, 13);    
+
+    const guestLogin = async (event) => {
+        event.preventDefault();
+        setSignupButton("Loading");
+        
+        const user = {
+            username: "Guest",
+            email: `guest${date}@bliss.com`,
+            password:   `trytry${date}`
+        }
+
+        try {
+            const res = await axios.post(backend + "/api/auth/register", user);
+            res && await loginCall(user, dispatch);
+        } catch (e) {
+            console.log(e.message)
+        }
+        setSignupButton("Create an account");
+    }
 
 
 
@@ -134,7 +153,7 @@ export const Signup = () => {
 
                                 <div>
                                     <label htmlFor="email" className='text-xs text-gray-500 font-semibold'>Your email</label>
-                                    <input type="email" id="email" autoComplete={false} className=" text-gray-900 sm:text-sm rounded-full  block w-full p-2.5 outline-none" placeholder="name@company.com" required='true'
+                                    <input type="email" id="email" autoComplete="false" className=" text-gray-900 sm:text-sm rounded-full  block w-full p-2.5 outline-none" placeholder="name@company.com" required={true}
                                         ref={email} />
                                 </div>
 
@@ -157,10 +176,12 @@ export const Signup = () => {
 
 
 
-                                <div className="flex justify-between text-sm font-light text-gray-500 ">
-                                    Already have an account ?
+                                <div className="flex justify-between text-sm font-light text-gray-500 font-medium text-indigo-600">
+                                    <button onClick={guestLogin}>
+                                        Guest Login
+                                    </button>
                                     <Link to="/login">
-                                        <p className="font-medium text-indigo-600">
+                                        <p>
                                             Login here
                                         </p>
                                     </Link>

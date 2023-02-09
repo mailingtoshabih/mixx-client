@@ -20,6 +20,7 @@ import axios from 'axios'
 
 
 export const Upload = () => {
+    
 
     const backend = process.env.REACT_APP_BACKEND_URL;
     const { user, dispatch } = useContext(AuthContext);
@@ -29,10 +30,9 @@ export const Upload = () => {
     const description = useRef();                               //post description
     const [file, setFile] = useState(null);
 
-    useNavigation();
-
+   
+    
     const shareHandler = async (e) => {
-        
         e.preventDefault();
 
         const newPost = {
@@ -78,11 +78,10 @@ export const Upload = () => {
 
 
 
+    
     const uploadBar = (event) => {
         setFile(event.target.files[0]);
     }
-
-
     // --------------------------------------------------------------
 
     return (
