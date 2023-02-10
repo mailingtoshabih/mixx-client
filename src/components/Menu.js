@@ -23,9 +23,11 @@ export const Menu = () => {
             <Link to={`/profile/find/${user.email}`}>
                 <button className='my-auto'>Profile</button>
             </Link>
+
             <Link to={`/profile/find/${user.email}`}>
                 <button className='my-auto'>Followers</button>
             </Link>
+            
             <Link to={`/profile/find/${user.email}`}>
                 <button className='my-auto'>Followings</button>
             </Link>

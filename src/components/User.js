@@ -17,7 +17,7 @@ export const User = ({ otheruser }) => {
 
     const backend = process.env.REACT_APP_BACKEND_URL;
     const { user } = useContext(AuthContext);
-    const [followStatus, setFollowStatus] = useState(false);
+    const [followStatus, setFollowStatus] = useState(otheruser?.followings?.includes(user.email));
     
 
     useState(() => {
