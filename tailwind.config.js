@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      display: ["Open Sans"],
+      display: ["Poppins"],
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],
