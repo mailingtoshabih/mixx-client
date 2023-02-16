@@ -12,12 +12,15 @@ import { Menu } from './Menu';
 export const Navbar = () => {
 
 
-    const { user, isFetching, error, dispatch } = useContext(AuthContext)
+    const { user,  dispatch } = useContext(AuthContext)
 
 
 
     // change ambience button
-
+    const handleLogout = (e) => {
+        e.preventDefault();
+        dispatch({ type: "LOGOUT" });
+    }
 
 
     return (
@@ -41,7 +44,7 @@ export const Navbar = () => {
 
                         <button
                             className='hidden md:block w-fit  p-1 md:p-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-blue-600'
-                            onClick={() => window.location.reload()}>
+                            onClick={handleLogout}>
                             Logout
                         </button>
 
