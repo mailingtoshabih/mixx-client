@@ -1,7 +1,6 @@
 import logo from '../assets/logo.png';
-// import settingsicon from '../assets/settingsicon.png';
 import { AuthContext } from '../context/AuthContext';
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { Menu } from './Menu';
 
@@ -32,7 +31,7 @@ export const Navbar = () => {
             <Menu />
 
             <nav className="fixed top-0 backdrop-blur-lg px-2 sm:px-4 py-2 mx-0 w-full ">
-                <div className=" container flex flex-wrap items-center justify-between mx-auto max-w-7xl">
+                <div className="px-1 container flex flex-wrap items-center justify-between mx-auto max-w-7xl">
 
                     <Link to={'/'} className="flex items-center">
                         <img src={logo} className="h-6 mr-3 lg:h-8" alt="Feeny" />

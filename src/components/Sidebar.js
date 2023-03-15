@@ -13,8 +13,6 @@ import { Metadata } from './Metadata'
 
 
 
-
-
 // ----------------------------------------------------
 export const Sidebar = () => {
 

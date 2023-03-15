@@ -1,18 +1,7 @@
-import avatar from "../assets/nopicture.png"
-import {useEffect, useState} from 'react';
 import { Link } from "react-router-dom"
-import capitalize from "../ToTitle"
 
 
 export const Followee = ({ otheruser }) => {
-    
-
-
-
-    
-
-
-
 
     return (
         <>

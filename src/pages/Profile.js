@@ -4,7 +4,6 @@ import linkedin from "../assets/linkedin.png"
 import twitter from "../assets/twitter.png"
 import avatar from "../assets/avatar.png"
 
-
 import { Navbar } from "../components/Nav";
 import { Metadata } from "../components/Metadata";
 import { Post } from "../components/Post";
@@ -13,25 +12,17 @@ import { About } from "../components/About";
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
-
-
 // ---------------------------------------------
 
 
 export const Profile = () => {
 
-
     const backend = process.env.REACT_APP_BACKEND_URL;
-
-
     const params = useParams();
-
     const [user, setUser] = useState({});
     const [myposts, setMyPosts] = useState([]);
 
-
     useEffect(() => {
-
         const fetchPosts = async () => {
 
             try {
@@ -47,12 +38,12 @@ export const Profile = () => {
         }
         fetchPosts();
 
-    }, []    //try empty array
+    }, [params]    //try empty array
     )
 
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }, []);
 
 
@@ -147,7 +138,7 @@ export const Profile = () => {
                             )
                             :
                             <div className="w-fit mx-auto my-64 text-xs font-semibold text-gray-500">
-                                Not posted anything yet...
+                                So empty here...
                             </div>
                     }
                 </div>

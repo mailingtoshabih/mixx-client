@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Navbar } from '../components/Nav';
 import { Around } from '../components/Around';
@@ -10,11 +10,7 @@ import { Followers } from '../components/Followers';
 export const People = () => {
 
     const { user } = useContext(AuthContext);
-
     const [peopleNav, setPeopleNav] = useState("Around");
-
-
-
 
     return (
         <div>

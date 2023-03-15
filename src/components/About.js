@@ -25,8 +25,12 @@ export const About = ({ user }) => {
             res && setFollowStatus(res?.data);
         }
         search()
-    },[currentUser, user?.email])
+    },[])
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    
     
     const followHandler = async () => {
         
@@ -57,8 +61,8 @@ export const About = ({ user }) => {
 
                 {/* image */}
                 <div>
-                    <img src={user?.profilePicture ? user?.profilePicture : avatar} 
-                    className="rounded-lg max-w-60" alt="" />
+                    {<img src={user?.profilePicture ? user?.profilePicture : avatar} 
+                    className="rounded-lg max-w-60" alt="" />}
 
                     <h1 className='text-lg md:text-xl lg:text-2xl mx-auto font-semibold text-gray-700 mt-4'>
                         {user?.username?.toUpperCase()}

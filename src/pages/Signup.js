@@ -58,7 +58,7 @@ export const Signup = () => {
 
 
         try {
-            const res = await axios.post(backend + "/api/auth/register", user);
+            await axios.post(backend + "/api/auth/register", user);
             await loginCall(user, dispatch);
         } catch (e) {
             console.log(e.message)

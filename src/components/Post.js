@@ -1,16 +1,12 @@
 import avatar from '../assets/nopicture.png'
-import { Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 import capitalize from "../ToTitle"
 import { Interact } from './Interact'
-import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
 
 // ------------------------------------------------------------------------
 
 export const Post = ({ post }) => {
 
-  const backend = process.env.REACT_APP_BACKEND_URL;
-  const { user } = useContext(AuthContext);
 
 
   return (
@@ -24,9 +20,12 @@ export const Post = ({ post }) => {
 
         <div className="flex-none">
 
+
+
           <Link to={`/profile/find/${post?.email}`}>
             <img src={post.profilePicture || avatar} className="h-12 m-1 rounded-full " alt="profilepic" />
           </Link>
+
 
         </div>
         <div className='text-md my-auto mx-2 font-bold text-gray-700'>
@@ -71,7 +70,7 @@ export const Post = ({ post }) => {
 
 
 
-      
+
 
     </div>
   )

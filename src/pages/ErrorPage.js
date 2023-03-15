@@ -6,7 +6,6 @@ export const ErrorPage = () => {
         <div>
             <Navbar/>
 
-
             <section className="bg-white h-screen">
                 <div className="py-8 px-4  mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                     <div className="mx-auto max-w-screen-sm text-center">
@@ -17,7 +16,6 @@ export const ErrorPage = () => {
                     </div>
                 </div>
             </section>
-
 
         </div>
     )

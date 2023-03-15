@@ -1,15 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
-
-
 
 
 export const Prompt = () => {
-
-
-    const [menu, setMenu] = useState("hidden");
-
-
 
 
     return (

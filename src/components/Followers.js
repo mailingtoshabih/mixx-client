@@ -1,14 +1,6 @@
-import { Link } from 'react-router-dom';
 import {User} from './User';
-import {Followee} from './Followee';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-
-
-
-
-
 
 
 
@@ -20,16 +12,16 @@ export const Followers = ({user,h}) => {
 
 
     const [followersList, setFollowersList] = useState([]);
-   useEffect( () => {
+   
+    useEffect( () => {
         
-    const search = async () => {
-        
+    const search = async () => { 
         const res = await axios.get(backend + `/api/users/followers/${user?.email}`);
         res && setFollowersList(res.data);
     }
     search();
 
-   },[] )
+   },[user] )
 
     
 

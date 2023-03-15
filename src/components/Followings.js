@@ -1,7 +1,6 @@
 import { AuthContext } from '../context/AuthContext';
 import { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
-import { Followee } from "./Followee";
 import {User} from './User'
 
 // ---------------------------------------------------------
