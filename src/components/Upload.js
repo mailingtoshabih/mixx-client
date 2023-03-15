@@ -3,10 +3,10 @@ import picicon from '../assets/picicon.png'
 import videoicon from '../assets/videoicon.png'
 import clipicon from '../assets/clipicon.png'
 
-import { useState, useEffect, useContext, useRef } from 'react'
+import { useState, useContext, useRef } from 'react'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { AuthContext } from '../context/AuthContext'
-import { Link, useNavigate, useNavigation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { storage } from '../firebase';
 import axios from 'axios'
 
@@ -23,15 +23,12 @@ export const Upload = () => {
     
 
     const backend = process.env.REACT_APP_BACKEND_URL;
-    const { user, dispatch } = useContext(AuthContext);
- 
+    const { user } = useContext(AuthContext);
     const [shareStatus, setShareStatus] = useState("Post");
-
     const description = useRef();                               //post description
     const [file, setFile] = useState(null);
 
    
-    
     const shareHandler = async (e) => {
         e.preventDefault();
 
@@ -64,7 +61,10 @@ export const Upload = () => {
                 const res = await axios.post(backend + '/api/posts', newPost);
                 if (res) {
                     setFile(null);
-                    setTimeout(() => {setShareStatus("Success")}, 1000);
+                    
+                    setTimeout(() => {
+                        setShareStatus("Success");
+                    }, 1000);
                 }
             }
             catch (exc) {
