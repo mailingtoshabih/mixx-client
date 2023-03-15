@@ -61,9 +61,9 @@ export const Upload = () => {
                 const res = await axios.post(backend + '/api/posts', newPost);
                 if (res) {
                     setFile(null);
-                    
                     setTimeout(() => {
                         setShareStatus("Success");
+                        window.location.reload();
                     }, 1000);
                 }
             }
